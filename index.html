@@ -27,26 +27,26 @@
     }
 
     .header-inner {
-  width: 100%;
-  margin: 0 auto;
-  padding: 2px 20px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
+      width: 100%;
+      margin: 0 auto;
+      padding: 2px 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
 
-.logo {
-  width: 100%;
-  max-width: 800px;
-  height: auto;
-  display: block;
-}
+    .logo {
+      width: 100%;
+      max-width: 800px;
+      height: auto;
+      display: block;
+    }
 
-main {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 95px 20px 40px;
-}
+    main {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 95px 20px 40px;
+    }
 
     .card {
       background: #0d0d0d;
@@ -62,7 +62,9 @@ main {
     }
 
     .insta-link {
-      display: inline-block;
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
       margin-top: 10px;
       padding: 14px 18px;
       border: 1px solid #444;
@@ -71,11 +73,20 @@ main {
       text-decoration: none;
       font-weight: bold;
       transition: 0.2s ease;
+      background: #111;
     }
 
     .insta-link:hover {
       background: #1a1a1a;
       border-color: #777;
+    }
+
+    .insta-icon {
+      width: 28px;
+      height: 28px;
+      object-fit: contain;
+      display: block;
+      border-radius: 6px;
     }
 
     .pdf-frame {
@@ -111,6 +122,11 @@ main {
       .pdf-frame iframe {
         height: 500px;
       }
+
+      .insta-icon {
+        width: 24px;
+        height: 24px;
+      }
     }
   </style>
 </head>
@@ -128,7 +144,8 @@ main {
       <p>Theck le INSTA mon con.</p>
 
       <a class="insta-link" href="https://instagram.com/rissebenoit" target="_blank">
-        Mon Instagram
+        <img src="logoinsta.png" alt="Logo Instagram" class="insta-icon">
+        <span>Mon Instagram</span>
       </a>
     </section>
 

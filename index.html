@@ -89,25 +89,128 @@
       border-radius: 6px;
     }
 
-    .pdf-frame {
-      margin-top: 18px;
-      border: 2px solid white;
-      border-radius: 16px;
+    .team-title {
+      opacity: 0;
+      max-height: 0;
       overflow: hidden;
-      background: white;
+      text-align: center;
+      font-size: 34px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      margin-bottom: 0;
+      transition: opacity 0.4s ease, max-height 0.4s ease, margin-bottom 0.4s ease;
     }
 
-    .pdf-frame iframe {
-      width: 100%;
-      height: 700px;
-      border: 0;
+    .team-card.active .team-title {
+      opacity: 1;
+      max-height: 80px;
+      margin-bottom: 18px;
+      animation: appleGlow 2.2s ease-in-out infinite alternate;
+    }
+
+    @keyframes appleGlow {
+      0% {
+        color: rgba(255,255,255,0.65);
+        text-shadow:
+          0 0 4px rgba(255,255,255,0.15),
+          0 0 12px rgba(255,255,255,0.08);
+      }
+      100% {
+        color: rgba(255,255,255,1);
+        text-shadow:
+          0 0 8px rgba(255,255,255,0.35),
+          0 0 20px rgba(255,255,255,0.25),
+          0 0 38px rgba(255,255,255,0.18);
+      }
+    }
+
+    .team-photo-wrap {
+      position: relative;
+      border-radius: 18px;
+      overflow: hidden;
+      border: 1px solid #2f2f2f;
+      background: #111;
+    }
+
+    .team-photo {
       display: block;
+      width: 100%;
+      height: auto;
     }
 
-    .pdf-link {
-      display: inline-block;
-      margin-top: 14px;
+    .team-reveal {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: end;
+      justify-content: center;
+      padding: 20px;
+      background: linear-gradient(to top, rgba(0,0,0,0.55), rgba(0,0,0,0.05));
+      border: 0;
+      cursor: pointer;
       color: white;
+      font-size: 16px;
+      font-weight: 600;
+      letter-spacing: 0.3px;
+    }
+
+    .team-card.active .team-reveal {
+      display: none;
+    }
+
+    .zone {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 33.3333%;
+      display: flex;
+      align-items: end;
+      justify-content: center;
+      padding: 18px 10px;
+      color: white;
+      text-decoration: none;
+      font-weight: 700;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.25s ease, background 0.25s ease;
+      background: rgba(0,0,0,0);
+    }
+
+    .team-card.active .zone {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .zone:hover {
+      background: rgba(255,255,255,0.08);
+    }
+
+    .zone span {
+      background: rgba(0,0,0,0.62);
+      border: 1px solid rgba(255,255,255,0.22);
+      border-radius: 999px;
+      padding: 8px 12px;
+      font-size: 14px;
+      backdrop-filter: blur(4px);
+    }
+
+    .zone-left {
+      left: 0;
+    }
+
+    .zone-center {
+      left: 33.3333%;
+    }
+
+    .zone-right {
+      right: 0;
+    }
+
+    .team-help {
+      margin-top: 14px;
+      color: #bdbdbd;
+      font-size: 14px;
+      text-align: center;
     }
 
     @media (max-width: 700px) {
@@ -119,13 +222,23 @@
         padding: 130px 20px 40px;
       }
 
-      .pdf-frame iframe {
-        height: 500px;
-      }
-
       .insta-icon {
         width: 24px;
         height: 24px;
+      }
+
+      .team-title {
+        font-size: 26px;
+      }
+
+      .zone span {
+        font-size: 12px;
+        padding: 7px 10px;
+      }
+
+      .team-reveal {
+        font-size: 14px;
+        padding: 14px;
       }
     }
   </style>
@@ -141,7 +254,7 @@
   <main>
     <section class="card">
       <h1>Bienvenue</h1>
-      <p>Check le INSTA mon con.</p>
+      <p>Theck le INSTA mon con.</p>
 
       <a class="insta-link" href="https://instagram.com/rissebenoit" target="_blank">
         <img src="logoinsta.png" alt="Logo Instagram" class="insta-icon">
@@ -149,19 +262,43 @@
       </a>
     </section>
 
-    <section class="card">
-      <h2>Pour tes beaux yeux:</h2>
-      <p>Et voilà mon coquin.</p>
+    <section class="card team-card" id="teamCard">
+      <div class="team-title" id="teamTitle">Le reste de la team</div>
 
-      <div class="pdf-frame">
-        <iframe src="yes.pdf"></iframe>
+      <div class="team-photo-wrap">
+        <img src="team-photo.jpg" alt="Le reste de la team" class="team-photo">
+
+        <button class="team-reveal" id="teamReveal" type="button">
+          Clique sur la photo
+        </button>
+
+        <a class="zone zone-left" href="https://instagram.com/Armand.fk" target="_blank" aria-label="Instagram Armand.fk">
+          <span>Armand.fk</span>
+        </a>
+
+        <a class="zone zone-center" href="https://instagram.com/Nicolas_rmy" target="_blank" aria-label="Instagram Nicolas_rmy">
+          <span>Nicolas_rmy</span>
+        </a>
+
+        <a class="zone zone-right" href="https://instagram.com/Valentin_rtt" target="_blank" aria-label="Instagram Valentin_rtt">
+          <span>Valentin_rtt</span>
+        </a>
       </div>
 
-      <a class="pdf-link" href="yes.pdf" target="_blank">
-        Ouvrir le PDF dans un nouvel onglet
-      </a>
+      <div class="team-help">
+        Après le clic, touche la zone gauche, milieu ou droite.
+      </div>
     </section>
   </main>
+
+  <script>
+    const teamCard = document.getElementById("teamCard");
+    const teamReveal = document.getElementById("teamReveal");
+
+    teamReveal.addEventListener("click", function () {
+      teamCard.classList.add("active");
+    });
+  </script>
 
 </body>
 </html>

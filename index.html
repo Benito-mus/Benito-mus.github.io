@@ -3,44 +3,157 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Benito VTT</title>
+  <title>B2DS</title>
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
     body {
+      margin: 0;
       font-family: Arial, sans-serif;
-      max-width: 700px;
-      margin: 40px auto;
-      padding: 20px;
-      line-height: 1.6;
-      text-align: center;
-      background: white;
-      color: black;
+      background: #000;
+      color: white;
     }
-    h1 {
-      margin-bottom: 10px;
+
+    /* Bannière fixe */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: #000;
+      border-bottom: 2px solid #222;
+      z-index: 1000;
     }
-    p {
-      color: #444;
+
+    .header-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 14px 20px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
     }
-    a {
+
+    .logo {
+      height: 56px;
+      width: auto;
       display: block;
-      margin: 14px 0;
-      padding: 14px;
-      text-decoration: none;
-      border: 1px solid #ddd;
-      border-radius: 10px;
-      color: black;
-      font-weight: bold;
     }
-    a:hover {
-      background: #f5f5f5;
+
+    .site-title {
+      font-size: 22px;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+
+    main {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 110px 20px 40px;
+    }
+
+    .card {
+      background: #0d0d0d;
+      border: 1px solid #2a2a2a;
+      border-radius: 18px;
+      padding: 24px;
+      margin-bottom: 28px;
+      box-shadow: 0 0 0 1px rgba(255,255,255,0.03);
+    }
+
+    h1, h2 {
+      margin-top: 0;
+    }
+
+    .insta-link {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 14px 18px;
+      border: 1px solid #444;
+      border-radius: 12px;
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      transition: 0.2s ease;
+    }
+
+    .insta-link:hover {
+      background: #1a1a1a;
+      border-color: #777;
+    }
+
+    .pdf-frame {
+      margin-top: 18px;
+      border: 2px solid white;
+      border-radius: 16px;
+      overflow: hidden;
+      background: white;
+    }
+
+    .pdf-frame iframe {
+      width: 100%;
+      height: 700px;
+      border: 0;
+      display: block;
+    }
+
+    .pdf-link {
+      display: inline-block;
+      margin-top: 14px;
+      color: white;
+    }
+
+    @media (max-width: 700px) {
+      .logo {
+        height: 42px;
+      }
+
+      .site-title {
+        font-size: 18px;
+      }
+
+      .pdf-frame iframe {
+        height: 500px;
+      }
     }
   </style>
 </head>
 <body>
-  
-  <p>Bienvenue 👋</p>
 
-  <a href="https://instagram.com/rissebenoit">Instagram</a>
-<img src=yes.pdf style="max-width:100%; border-radius:12px; margin:20px 0;">
+  <header>
+    <div class="header-inner">
+      <img src="B2DS%20copie.png" alt="Logo B2DS" class="logo">
+      <div class="site-title">B2DS</div>
+    </div>
+  </header>
+
+  <main>
+    <section class="card">
+      <h1>Bienvenue</h1>
+      <p>Retrouve mon univers ici.</p>
+
+      <a class="insta-link" href="https://instagram.com/toncompte" target="_blank">
+        Mon Instagram
+      </a>
+    </section>
+
+    <section class="card">
+      <h2>Pour tes feux yeux</h2>
+      <p>Voici le contenu dédié.</p>
+
+      <div class="pdf-frame">
+        <iframe src="yes.pdf"></iframe>
+      </div>
+
+      <a class="pdf-link" href="yes.pdf" target="_blank">
+        Ouvrir le PDF dans un nouvel onglet
+      </a>
+    </section>
+  </main>
+
+</body>
+</html>
 </body>
 </html>
